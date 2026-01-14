@@ -1,4 +1,6 @@
-const Cell = ({ cell_height, cell_width, xCord, yCord, onHover }) => {
+const Cell = ({
+  
+  cell_height, cell_width, xCord, yCord, onHover ,value,onChange}) => {
   return (
     <div
       style={{
@@ -19,6 +21,8 @@ const Cell = ({ cell_height, cell_width, xCord, yCord, onHover }) => {
     >
       <input
         type="text"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
         placeholder={`${xCord},${yCord}`}
         style={{
           width: '100%',

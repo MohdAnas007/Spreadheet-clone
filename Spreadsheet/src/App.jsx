@@ -54,6 +54,13 @@ function App() {
     const visibleRows=matrix.slice(startRow,endRow);
 
 
+    const [values, setValues] = useState({});
+
+    const setCellValue = (key, value) => {
+      setValues(prev => ({ ...prev, [key]: value }));
+    };
+
+
 
 
 
@@ -107,6 +114,10 @@ function App() {
                     xCord={startRow + rowIndex}
                     yCord={startCol + colIndex}
                     onHover={handleHover}
+                    value={values[`${startRow + rowIndex}-${startCol + colIndex}`] || ""}
+                    onChange={(val) =>
+                      setCellValue(`${startRow + rowIndex}-${startCol + colIndex}`, val)
+                    }
                   />
                 ))}
               </div>
